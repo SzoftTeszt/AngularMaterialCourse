@@ -1,1 +1,11 @@
-<p>basic works!</p>
+<mat-table class="lessons-table mat-elevation-z8" 
+[dataSource]="dataSource">
+    <ng-container
+    *ngFor="let oszlop of displayedColumns"
+    [matColumnDef]='oszlop'>
+        <mat-header-cell *matHeaderCellDef>{{oszlop}}</mat-header-cell>
+        <mat-cell *matCellDef="let animal">{{animal[oszlop]}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

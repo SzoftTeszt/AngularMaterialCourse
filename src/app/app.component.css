@@ -8,4 +8,11 @@
 }
 .sidenav-container{
     flex:1 1 100%;
+    z-index:1;
+}
+mat-sidenav-content{
+    padding: 2rem;
+}
+mat-toolbar{
+    z-index:2;
 }
