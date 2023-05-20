@@ -17,6 +17,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule} from '@angular/material/core';
+import { MatSliderModule} from '@angular/material/slider';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -58,7 +62,11 @@ import { AnimalEditorComponent } from './animal-editor/animal-editor.component';
    MatSelectModule,
    MatInputModule,
    FormsModule,
-   ReactiveFormsModule
+   ReactiveFormsModule,
+   MatDatepickerModule,
+   MatNativeDateModule,
+   MatSliderModule,
+   MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

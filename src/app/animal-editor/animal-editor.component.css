@@ -1,0 +1,12 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.fill-width{
+    width:100%;
+}
+mat-card{
+    max-width: 400px;
+    margin: 0 auto;
+}
