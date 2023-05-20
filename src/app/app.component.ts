@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfigService } from './config.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularMaterial';
+  menuItems:any;
+  constructor(private config:ConfigService){
+    this.menuItems=this.config.menuItems;
+  }
 }
