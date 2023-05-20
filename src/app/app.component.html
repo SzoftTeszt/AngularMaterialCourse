@@ -1,12 +1,12 @@
 <div class="main">
   <mat-toolbar class="mat-elevation-z8" color="primary">
     <mat-toolbar-row>
-      <button (click)="sidenav.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <button (click)="sidenav.toggle()" mat-icon-button class="d-lg-none example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
       <span>Material Design</span>
       <span class="example-spacer"></span>    
-    <div>
+    <div  class="d-none d-lg-block">
       <a *ngFor="let item of menuItems"
       [routerLink]="item.url"
       routerLinkActive="active"
@@ -19,7 +19,7 @@
   </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-sidenav-container>
+  <mat-sidenav-container class="sidenav-container" color="primary">
     <mat-sidenav #sidenav>
       <mat-nav-list>
         <div>
@@ -27,19 +27,18 @@
           [routerLink]="item.url"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{exact: item.url==='/'}"
-          mat-button>
+          mat-list-item>
           <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
           {{item.text}}
         </a>
         </div>
-        <a (click)="sidenav.toggle()">
+        <a mat-list-item (click)="sidenav.toggle()">
           <mat-icon>keyboard_arrow_left</mat-icon>Close
         </a>
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      fdfsdfsdafds
         <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

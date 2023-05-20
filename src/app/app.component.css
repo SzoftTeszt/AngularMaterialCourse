@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+}
+.main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.sidenav-container{
+    flex:1 1 100%;
+}
