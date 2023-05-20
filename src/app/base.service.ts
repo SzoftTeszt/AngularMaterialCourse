@@ -8,7 +8,16 @@ export class BaseService {
   url="http://localhost:3000/allatok/";
   constructor(private http:HttpClient) { }
   
-  get(){
-    return this.http.get(this.url);
+  get(id?:string){
+    if (!id) return this.http.get(this.url);
+    return this.http.get(this.url+id);
+  }
+
+  update(id:any, body:any){
+    return this.http.put(this.url+id,body);
+  }
+
+  delete(id:any){
+    return this.http.delete(this.url+id);
   }
 }

@@ -1,1 +1,54 @@
-<p>editable works!</p>
+<mat-form-field>
+    
+    <mat-label>Field</mat-label>
+    <mat-select (selectionChange)="applyFilter(filter.value)" [(ngModel)]="currentFilterKey">
+        <mat-option [value]="''">all field</mat-option>
+        <mat-option
+            *ngFor="let oszlop of displayedColumns"
+            [value]="oszlop">{{oszlop}}</mat-option>
+    </mat-select>
+
+</mat-form-field>
+<mat-form-field>
+    
+    <mat-label>Filter</mat-label>
+   <input #filter matInput type="text" name="filter" (keyup)="applyFilter(filter.value)">
+
+</mat-form-field>
+
+
+<mat-table class="lessons-table mat-elevation-z8" 
+*ngIf="dataSource" [dataSource]="dataSource">
+    <ng-container
+    *ngFor="let oszlop of displayedColumns"
+    [matColumnDef]='oszlop'>
+
+    <ng-container *ngIf="oszlop!='műveletek'; else masik ">
+        <mat-header-cell *matHeaderCellDef>{{oszlop}}</mat-header-cell>
+        <mat-cell *matCellDef="let animal">{{animal[oszlop]}}</mat-cell>
+    </ng-container>
+
+    <ng-template #masik>
+        <mat-header-cell *matHeaderCellDef>{{oszlop}}</mat-header-cell>
+        <mat-cell *matCellDef="let animal">
+            <button (click)="onEdit(animal)" mat-button color="primary">
+                <mat-icon>edit</mat-icon>
+                Edit</button>
+            <button (click)="onDelete(animal)" mat-button color="warn">
+                <mat-icon>delete</mat-icon>
+                Delete</button>
+        </mat-cell>
+    </ng-template>
+    
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<mat-paginator class="mat-elevation-z8" 
+    #paginator
+    [pageSizeOptions]="pageSizes"
+    [pageSize]="4"
+    showFirstLastButtons
+></mat-paginator>
